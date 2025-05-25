@@ -893,6 +893,8 @@ MonoBehaviour:
   max_stamina: 30
   stamina_recovery: 1
   sprint_stamina_consumption: 5
+  stamina_penalty: 2
+  movement_resistance: 0.25
   dash_stamina_consumption: 10
   camera_offset_speed: 5
 --- !u!136 &2023352448

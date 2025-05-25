@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// [NOTE] Maybe O should separate Player and Movement
+// [NOTE] Maybe I should separate Player and Movement
 
 public class Movement : MonoBehaviour
 {
@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     ////////////////////////////// [Class Attributes] //////////////////////////////
     [SerializeField] private float sprint_stamina_consumption = 5;
     [SerializeField] private float stamina_penalty = 2;
+    [SerializeField] private float movement_resistance = 0.25f;
     [SerializeField] private float dash_stamina_consumption = 10;
     [SerializeField] private float camera_offset_speed = 5;
 
@@ -87,12 +88,12 @@ public class Movement : MonoBehaviour
         cameraOffset();
     }
 
-    // [Note] it takes too long to stop
     void moveForce(float acceleration, float max_speed)
     {
         if (getVelocity().magnitude < Mathf.Sqrt(max_speed * max_speed)) rb.AddForce(getDirectionMove() * acceleration, ForceMode.Force);
         float resistance_cof = Mathf.Clamp01(getVelocity().magnitude / max_speed);
         if (max_speed != 0) rb.AddForce(-getVelocity() * resistance_cof, ForceMode.Force);
+        if (getDirectionMove().magnitude == 0) rb.linearVelocity += -getVelocity() * movement_resistance;
     }
 
     void cameraOffset()
