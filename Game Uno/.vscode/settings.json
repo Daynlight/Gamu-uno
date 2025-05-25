@@ -66,5 +66,11 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj",
     },
-    "dotnet.defaultSolution": "Game Uno.sln"
+    "dotnet.defaultSolution": "Game Uno.sln",
+    "cSpell.words": [
+        "Behaviour",
+        "cooldown",
+        "Mathf",
+        "Rigidbody"
+    ]
 }
