@@ -11,9 +11,11 @@ public class Movement : MonoBehaviour
     [SerializeField] private float sprint_stamina_consumption = 5;
     [SerializeField] private float stamina_penalty = 2;
     [SerializeField] private float dash_power = 20.0f;
-    [SerializeField] private float dash_cooldown = 5;
+    [SerializeField] private float dash_cooldown = 3;
     [SerializeField] private float dash_stamina_consumption = 10;
     [SerializeField] private float camera_offset_speed = 5;
+    [SerializeField] private float camera_max_distance = 10;
+
 
     // [References]
     private Player pl;
@@ -98,7 +100,11 @@ public class Movement : MonoBehaviour
         Vector3 camera_direction = this.transform.position - last_position;
         Vector3 camera_velocity = camera_direction * camera_offset_speed * Time.deltaTime;
         cam.transform.position = camera_offset + last_position;
-        last_position = last_position + camera_velocity;
+
+        if (camera_max_distance < camera_direction.magnitude)
+            last_position = this.transform.position - camera_direction.normalized * camera_max_distance;
+        else
+            last_position = last_position + camera_velocity;
     }
 
     public void staminaControl()

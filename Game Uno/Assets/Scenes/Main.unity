@@ -838,6 +838,7 @@ GameObject:
   - component: {fileID: 2023352448}
   - component: {fileID: 2023352447}
   - component: {fileID: 2023352446}
+  - component: {fileID: 2023352452}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -884,19 +885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c830e1a8940b94a41988a0cff4bd2d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 6
-  move_acceleration: 15
-  sprint_speed: 10
-  sprint_acceleration: 20
-  dash_power: 20
-  dash_cooldown: 5
   max_stamina: 30
   stamina_recovery: 1
-  sprint_stamina_consumption: 5
-  stamina_penalty: 2
-  movement_resistance: 0.25
-  dash_stamina_consumption: 10
-  camera_offset_speed: 5
+  stamina: 0
 --- !u!136 &2023352448
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -989,6 +980,30 @@ Transform:
   - {fileID: 646222121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2023352452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023352445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de53220889f28743b6c854b3106467a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  move_speed: 6
+  move_acceleration: 15
+  movement_resistance: 0.1
+  sprint_speed: 10
+  sprint_acceleration: 20
+  sprint_stamina_consumption: 5
+  stamina_penalty: 2
+  dash_power: 20
+  dash_cooldown: 3
+  dash_stamina_consumption: 10
+  camera_offset_speed: 5
+  camera_max_distance: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
